@@ -1,0 +1,15 @@
+# systemd unit file
+# /etc/systemd/system/temperature-control.service
+[Unit]
+Description=Temperature Control Hack
+After=multi-user.target
+
+[Service]
+# temporary safety check until all DMs are converted to correct
+# display-manager.service symlink handling
+ExecStart=/usr/local/sbin/temperature
+Restart=always
+RestartSec=60
+
+[Install]
+RequiredBy=multi-user.target
